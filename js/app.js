@@ -1,47 +1,45 @@
 // para los objetos
 var restaurantes =[
   {
-    "nombre": "Palmares Azotea",
-		"dirección": "Durango 216, Roma.",
-    "foto": "https://dummyimage.com/400x400/000/fff"
-    "ubicacion":{"lat": "19.4193535","lng": "-99.1701212"}
-  },
-  {
-    "nombre": "La parrillita Esquina Porteña",
-		"direccion": "Manzanillo 81, Roma.",
-    "foto": "https://dummyimage.com/400x400/000/fff"
-    "ubicacion":
-    {"lat": "19.4193501",
-    "lng": "-99.2029523"}
-  },
-  {
-    "nombre": "La casa de Cantera",
-		"direccion": "Yucatán 147, Roma.",
-    "foto": "https://dummyimage.com/400x400/000/fff"
-    "ubicacion":
-    {"lat": "19.412246",
-    "lng": "-99.1621157"}
-  },
-  {
-    "nombre": "La Vie en Rose",
-		"direccion": "Av. Álvaro Obregón 275,Roma.",
-    "foto": "https://dummyimage.com/400x400/000/fff"
-    "ubicacion":
-    {"lat": "19.4170418",
-    "lng": "-99.1702384"}
-  },
-  {
-    "nombre": "La Zaranda Miravalle",
-		"direccion": "Plaza Villa de Madrid 17,Roma.",
-    "foto": "https://dummyimage.com/400x400/000/fff"
-    "ubicacion":
-    {"lat": "19.4202911",
-    "lng": "-99.1691991"}
-  },
+		"nombre": "Palmares Azotea",
+		"coordenadas":{"lat": "19.4193535",
+                  "lng": "-99.1701212"} ,
+		"foto": "https://dummyimage.com/400x400/000/fff",
+    "direccion": "Durango 216, Roma."
+	},
+
+    {
+		"nombre": "La parrillita Esquina Porteña",
+		"coordenadas": {"lat": "19.4193501",
+                    "lng": "-99.2029523"},
+		"foto": "https://dummyimage.com/400x400/000/fff",
+    "direccion": "Manzanillo 81, Roma."
+	},
+
+    {
+		"nombre": "La casa de Cantera",
+		"coordenadas": {"lat": "19.412246",
+                    "lng": "-99.1621157"},
+		"foto": "https://dummyimage.com/400x400/000/fff",
+    "direccion": "Yucatán 147, Roma."
+	},
+
+    {
+		"nombre": "La Vie en Rose",
+		"coordenadas": {"lat": "19.4170418",
+                    "lng": "-99.1702384"},
+		"foto": "https://dummyimage.com/400x400/000/fff",
+    "direccion": "Av. Álvaro Obregón 275,Roma."
+	},
+
+    {
+		"nombre": "La Zaranda Miravalle",
+		"coordenadas":{"lat": "19.4202911",
+                  "lng": "-99.1691991"},
+		"foto": "https://dummyimage.com/400x400/000/fff",
+    "direccion": "Plaza Villa de Madrid 17,Roma."
+}
 ];
-
-
-
 
 var cargarPagina = function(){
     //para el mapa
