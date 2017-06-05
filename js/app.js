@@ -1,10 +1,5 @@
-
-var cargarPagina = function () {
-	$("#get-location").click(obtenerUbicacion);
-};
-
-var obtenerUbicacion = function (e) {
-	if (navigator.geolocation) {
+var cargarPagina = function(){
+    if (navigator.geolocation) {
 		navigator.geolocation.getCurrentPosition(mostrarPosicion);
 	} else {
 		alert("Actualice su navegador");
@@ -12,14 +7,11 @@ var obtenerUbicacion = function (e) {
 };
 
 var mostrarPosicion = function (posicion) {
-	console.log(posicion);
-	// alert("Latitud: " + posicion.coords.latitude);
-	// alert("Longitud: " + posicion.coords.longitude);
-
 	var coordenadas = {
 		lat: posicion.coords.latitude,
 		lng: posicion.coords.longitude
 	};
+    console.log(posicion.coords.latitude);
 	mostrarMapa(coordenadas);
 };
 
@@ -33,5 +25,6 @@ var mostrarMapa = function (coordenadas) {
       map: map
     });
 }
+
 
 $(document).ready(cargarPagina);
