@@ -4,40 +4,45 @@ var restaurantes =[
 		"nombre": "Palmares Azotea",
 		"coordenadas":{'lat': 19.4193535,
                   'lng': -99.1701212} ,
-		"foto": "https://dummyimage.com/400x400/000/fff",
-    "direccion": "Durango 216, Roma."
+		"foto": "assets/img/palmares.jpg",
+    "direccion": "Durango 216, Roma.",
+    "comida":"internacional"
 	},
 
     {
 		"nombre": "La parrillita Esquina Porteña",
 		"coordenadas": {'lat': 19.4193501,
                     'lng': -99.2029523},
-		"foto": "https://dummyimage.com/400x400/000/fff",
-    "direccion": "Manzanillo 81, Roma."
+		"foto": "assets/img/parrillita.jpg",
+    "direccion": "Manzanillo 81, Roma.",
+    "comida": "argentina"
 	},
 
     {
 		"nombre": "La casa de Cantera",
 		"coordenadas": {'lat': 19.412246,
                     'lng': -99.1621157},
-		"foto": "https://dummyimage.com/400x400/000/fff",
-    "direccion": "Yucatán 147, Roma."
+		"foto": "assets/img/cantera.jpg",
+    "direccion": "Yucatán 147, Roma.",
+    "comida":"internacional"
 	},
 
     {
 		"nombre": "La Vie en Rose",
 		"coordenadas": {'lat': 19.4170418,
                     'lng': -99.1702384},
-		"foto": "https://dummyimage.com/400x400/000/fff",
-    "direccion": "Av. Álvaro Obregón 275,Roma."
+		"foto": "./assets/img/vie.jpg",
+    "direccion": "Av. Álvaro Obregón 275,Roma.",
+    "comida": "francesa"
 	},
 
     {
 		"nombre": "La Zaranda Miravalle",
 		"coordenadas":{'lat': 19.4202911,
                   'lng': -99.1691991},
-		"foto": "https://dummyimage.com/400x400/000/fff",
-    "direccion": "Plaza Villa de Madrid 17,Roma."
+		"foto": "assets/img/zaranda.jpg",
+    "direccion": "Plaza Villa de Madrid 17,Roma.",
+    "comida": "Pescados y mariscos"
 }
 ];
 
@@ -50,6 +55,8 @@ var cargarPagina = function(){
 	}
   mostrarRestaurant(restaurantes);
   $("#search-form").submit(filtrarLugares);
+  $('select').material_select();
+
 };
 
 var plantillaRestaurant =
@@ -58,7 +65,7 @@ var plantillaRestaurant =
         '<h5 class="header">__nombre__</h5>'+
         '<div class="card horizontal">'+
           '<div class="card-image">'+
-            '<img src="__foto__>'+
+            '<img src="__foto__">'+
           '</div>'+
           '<div class="card-stacked">'+
             '<div class="card-content">'+
@@ -120,9 +127,16 @@ var mostrarMapa = function (coordenadas) {
 };
 var filtrarLugares = function (e) {
 	e.preventDefault();
-	var criterioBusqueda = $("#search").val().toLowerCase();
+	var criterioBusqueda =parseInt($("select").val().toLowerCase());
+  var palabraBusqueda = $("#search").val().toLowerCase();
 	var lugaresFiltrados = restaurantes.filter(function (restaurant) {
-		return restaurant.nombre.toLowerCase().indexOf(criterioBusqueda) >= 0;
+    if (criterioBusqueda === 1){
+      return restaurant.comida.toLowerCase().indexOf(palabraBusqueda) >= 0;
+    }else if(criterioBusqueda === 2){
+		  return restaurant.direccion.toLowerCase().indexOf(palabraBusqueda) >= 0;
+    }else if(criterioBusqueda === 3){
+      return restaurant.nombre.toLowerCase().indexOf(palabraBusqueda) >= 0;
+    }
 	});
 	mostrarRestaurant(lugaresFiltrados);
 };
